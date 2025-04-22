@@ -1,25 +1,21 @@
-import os
-
-def elephant() -> None:
-    try:
-        match_numb = input("Digite o número de elefantes presentes: ")
-        if match_numb:
-            repetitions = int(match_numb)
-            music = f"Um elefante incomoda muita gente!\n"
-            if repetitions > 1:
-                for numb in range(2, repetitions + 1):
-                    music += f"{numb} elefantes " + "incomodam "*numb + "muito mais!\n"
-                    if repetitions > numb:
-                        music += f"{numb} elefantes incomodam muita gente!\n"
-                print(music)
+def elefantar():
+    limite = int(input('Digite o número de elefantes presentes: '))
+    if (limite < 1):
+        print('Eu sei que há pelo menos um elefante. Não minta para mim.')
+        elefantar()
+    n = 1
+    if limite == 1:
+        print('Um elefante incomoda muita gente')
+        
+    else:
+        limite = limite - 1
+        while (n <= limite):
+            if (n == 1):
+                print('Um elefante incomoda muita gente')
+                print('2 elefantes incomodam incomodam muito mais!')
+                n += 1
             else:
-                print(music)
-        else:
-            raise ValueError("String vazia! Nada a converter para inteiro!")
-    except ValueError as e:
-        print(e)
-        elephant()
-
-if __name__ == "__main__":
-    os.system('cls' if os.name == 'nt' else 'clear')
-    elephant()
+                print(f'{n} elefantes incomodam muita gente,')
+                n += 1               
+                print(f'{n} elefantes {n * "incomodam "}muito mais!')            
+elefantar()
